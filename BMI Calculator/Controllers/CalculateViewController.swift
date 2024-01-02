@@ -2,13 +2,11 @@
 //  ViewController.swift
 //  BMI Calculator
 //
-//  Created by Angela Yu on 21/08/2019.
-//  Copyright © 2019 Angela Yu. All rights reserved.
-//
+//  Created by Nazrin Atayeva on 01.01.24.
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculateViewController: UIViewController {
 
     @IBOutlet var heightLabel: UILabel!
     @IBOutlet var weightLabel: UILabel!
@@ -35,7 +33,11 @@ class ViewController: UIViewController {
         let weight = weightSlider.value
         
         let bmi = weight / pow(height, 2)
-        print(bmi)
+        
+        let secondVc = SecondViewController()
+        secondVc.bmiValue = String(format: "%.1f", bmi)
+        
+        self.present(secondVc, animated: true, completion: nil)
     }
 }
 
